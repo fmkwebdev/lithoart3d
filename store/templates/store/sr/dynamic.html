@@ -1,0 +1,68 @@
+<html>
+{% load static %}
+    <head>
+        	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        
+    </head>
+<body>
+
+<style>
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  background: #11e8bb; /* Old browsers */
+  background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #11e8bb 0%,#8200c9 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #11e8bb 0%,#8200c9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11e8bb', endColorstr='#8200c9',GradientType=0 ); /* IE6-9 */
+  }
+
+</style>
+  
+
+
+
+
+<div id="canvas">
+    <div class="d-flex w-100" style="position: absolute; top: 35%; width: 100vw;">
+        <div class="d-flex w-100 justify-content-center" style="flex: auto;">
+           <div class="card" style="width: 58rem;">
+              <img class="card-img-top" >
+              <div class="card-body">
+                <h5 class="card-title text-center">Thank you for your purchase!</h5>
+                <p class="card-text">Here is your confirmation code: <span id="szam" style="font-size: 1.2em; font-weight: 600;"></span><br>
+                Write this code down!<br>
+                We will contant you on the email you gave us.
+                </p>
+                  <p>Confirmation Number: {{ confirmation_number }}</p>
+                  		<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="confirmation_number" value="{{ confirmation_number }}">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="file" name="file" required>                       
+    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Confirm" style="border-radius: 12px;">
+                    </form>
+                
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+	
+
+
+
+	<script src="{% static 'js/three.min.js' %}"> </script>
+	<script src="{% static 'js/jancsi.js' %}"></script>
+    
+</body>
+</html>

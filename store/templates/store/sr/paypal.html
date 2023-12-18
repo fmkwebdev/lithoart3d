@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>How to Integrate PayPal Checkout in eCommerce Website</title>
+</head>
+<style>
+#response {
+    display:none;
+    color: #255625;
+    padding: 10 20px;
+    background: #c0efc0;
+    border: #aadeab 1px solid;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+</style>
+<body>
+<div id="response"></div>
+<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+	paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'AfzJyEeVmOuQGCneSL2JTq6g3bfrKkfc5GDXPvyLFmQARqkSAXXyBEJhfOqzSo6R2Tm70Kx8Yq5lIQ0S'
+    },
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '0.01',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+    	  document.getElementById("response").style.display = 'inline-block';
+        document.getElementById("response").innerHTML = 'Thank you for making the payment!';
+      });
+    }
+  }, '#paypal-button'); 
+
+</script>
+</body>
+</html>

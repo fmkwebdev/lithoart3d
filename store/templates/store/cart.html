@@ -1,0 +1,63 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<style>
+	body {
+		background-color: #131313;
+		
+	}
+</style>
+	<div class="row cartrow">
+		<div class="col-lg-12">
+			<div class="boxolo-element" style="background-color: #0f0f0f; background-blend-mode: darken;">
+
+				<a  class="btn btn-outline-light" href="{% url 'store' %}"  style="color: white; border-radius: 15px;">&#x2190;Vissza</a>
+
+				<br>
+				<br>
+				
+				<table class="table">
+					<tr>
+						<th><h5  style="color: white;">Termékek száma: <strong>{{order.get_cart_items}}</strong></h5></th>
+						<th><h5  style="color: white;">Végösszeg:<strong> {{order.get_cart_total|floatformat:2}} EUR</strong></h5></th>
+						<th>
+							<a  style="float:right; margin:5px; border-radius: 15px;" class="btn btn-success" href="{% url 'checkout' %}" >Vásárlás</a>
+						</th>
+					</tr>
+				
+				</table>
+				
+			</div>
+
+			<br>
+			<div class="boxolo-element" style="background-color: #0f0f0f; background-blend-mode: darken; display: flex; flex-direction: column; justify-content: space-around; justify-content: space-evenly; gap: 1.4em">
+				<div class="cart-row">
+					<div style="flex-grow: 2; margin-left: 10%;"><strong style="color: white;">Termék</strong></div>
+					<div style="flex-grow: 2;"><strong style="color: white;">Ár</strong></div>
+					<div style="flex-grow: 2;"><strong style="color: white;">Darabszám</strong></div>
+					<div style="flex-grow: 2;"><strong style="color: white;">Végösszeg</strong></div>
+				</div>
+			<div class="boxolo-element" style="background-color: #0f0f0f; background-blend-mode: darken; display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 1.4em">
+				{% for item in items %}
+				<div class="cart-row">
+					<div style="flex-grow: 2; margin-left: 9%;"><p style="color: white;">{{item.product.name}}</p></div>
+					<div style="flex-grow: 2;"><p style="color: white;">{{item.product.price|floatformat:2}} EUR </p></div>
+					<div style="flex-grow: 2;">
+						<p class="quantity"  style="color: white; font-size: 1.5em;">{{item.quantity}}</p>
+						<div class="quantity">
+							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-uppercut.png' %}" style="height: 0.8em; width: .8em;">
+					
+							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down12.png' %}" style="height: 0.8em; width: 0.8em;">
+						</div>
+					</div>
+					<div style="flex-grow: 2;"><p  style="color: white;">{{item.get_total|floatformat:2}} EUR</p></div>
+				</div>
+				{% endfor %}
+			
+			</div>
+		</div>
+	</div>
+{% endblock content %}

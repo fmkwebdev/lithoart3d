@@ -1,0 +1,182 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- START HERE -->
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Style The Contact Form How Ever You Prefer -->
+<link rel="stylesheet" href="style.css">
+
+<form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+action="https://script.google.com/macros/s/AKfycbylLw1P3GdMhsW2Aw43hWVeZhXeH12cEJpwo9cI8Q/exec">
+ <!-- change the form action to your script url -->
+
+ <div class="form-elements">
+   <fieldset class="pure-group" style="position:absolute;right:28%;top: 20%;">
+     <label for="name" style="position: relative; background-image: linear-gradient(red, yellow);-webkit-text-fill-color: transparent;-webkit-background-clip: text; font-size: 4vh;pointer-events: none; ">Név, Vezetéknév</label>
+     <input id="name" name="name" placeholder="Név" style="width: 40vw;border-radius: 1.0351966873706004vh 5.175983436853002vh 1.0351966873706004vh;" />
+   </fieldset>
+
+   <fieldset class="pure-group" style="position:absolute;right: 28%;top: 40%; color: black;">
+     <label for="message" style="position: relative; background-image: linear-gradient(red, yellow);-webkit-text-fill-color: transparent;-webkit-background-clip: text; font-size: 6vh; left: 1%; pointer-events: none;">Üzenet</label>
+     <textarea id="message" name="message" rows="10" style="resize: none; border-radius: 1.0351966873706004vh 5.175983436853002vh 1.0351966873706004vh; width: 40vw;"
+     placeholder="Ide írja az üzenetet !"></textarea>
+   </fieldset>
+
+   <fieldset class="pure-group" style="position:absolute;right:28%;top: 30%; color: white;">
+     <label for="email" style="position: relative; background-image: linear-gradient(red, yellow);-webkit-text-fill-color: transparent;-webkit-background-clip: text; font-size: 4vh;pointer-events: none;">Email címed</label>
+     <input id="email" name="email" type="email" value=""
+     required placeholder="te.email@cimed.hu" style="width: 40vw;border-radius: 1.0351966873706004vh 5.175983436853002vh 1.0351966873706004vh;"/>
+   </fieldset>
+
+  
+<style>
+
+@keyframes hamarosan{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 0.5;
+    }
+    100%{
+      opacity: 1;
+    }
+}
+
+</style>
+
+
+   <button class="button-success pure-button button-xlarge" style="position:absolute;right:28%;top: 83%; color: white; width: 40vw; height: ;border-radius: 1.0351966873706004vh 5.175983436853002vh 1.0351966873706004vh;">
+     <i class="fa fa-paper-plane" style="color: red; font-size: 2em;"></i>&nbsp;<p style="color:red; font-size: 0.8em;">Küldés</p></button>
+ </div>
+
+ <div class="thankyou_message" style="display: none;">
+  <h2 style="position: absolute; top: 50%; color: black; font-size: 3.5vh;font-style: italic;text-shadow: 1vh 1vh 1vh black; right: 28%;animation: hamarosan 4s linear; pointer-events: none;"> Az email elküldve, hamarosan kapcsolatba lépünk önnel
+    </h2>
+</div>
+
+
+<style>
+
+input, select, textarea{
+    color: #ff0000;
+}
+
+</style>
+
+</form>
+<script>
+
+(function() {
+  // get all data in form and return object
+  function getFormData(form) {
+    var elements = form.elements;
+    var honeypot;
+
+    var fields = Object.keys(elements).filter(function(k) {
+      if (elements[k].name === "honeypot") {
+        honeypot = elements[k].value;
+        return false;
+      }
+      return true;
+    }).map(function(k) {
+      if(elements[k].name !== undefined) {
+        return elements[k].name;
+      // special case for Edge's html collection
+      }else if(elements[k].length > 0){
+        return elements[k].item(0).name;
+      }
+    }).filter(function(item, pos, self) {
+      return self.indexOf(item) == pos && item;
+    });
+
+    var formData = {};
+    fields.forEach(function(name){
+      var element = elements[name];
+      
+      // singular form elements just have one value
+      formData[name] = element.value;
+
+      // when our element has multiple items, get their values
+      if (element.length) {
+        var data = [];
+        for (var i = 0; i < element.length; i++) {
+          var item = element.item(i);
+          if (item.checked || item.selected) {
+            data.push(item.value);
+          }
+        }
+        formData[name] = data.join(', ');
+      }
+    });
+
+    // add form-specific values into the data
+    formData.formDataNameOrder = JSON.stringify(fields);
+    formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+    formData.formGoogleSendEmail
+      = form.dataset.email || ""; // no email by default
+
+    return {data: formData, honeypot: honeypot};
+  }
+
+  function handleFormSubmit(event) {  // handles form submit without any jquery
+    event.preventDefault();           // we are submitting via xhr below
+    var form = event.target;
+    var formData = getFormData(form);
+    var data = formData.data;
+
+    // If a honeypot field is filled, assume it was done so by a spam bot.
+    if (formData.honeypot) {
+      return false;
+    }
+
+    disableAllButtons(form);
+    var url = form.action;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    // xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          form.reset();
+          var formElements = form.querySelector(".form-elements")
+          if (formElements) {
+            formElements.style.display = "none"; // hide form
+          }
+          var thankYouMessage = form.querySelector(".thankyou_message");
+          if (thankYouMessage) {
+            thankYouMessage.style.display = "block";
+          }
+        }
+    };
+    // url encode form data for sending as post data
+    var encoded = Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+    }).join('&');
+    xhr.send(encoded);
+  }
+  
+  function loaded() {
+    // bind to the submit event of our form
+    var forms = document.querySelectorAll("form.gform");
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener("submit", handleFormSubmit, false);
+    }
+  };
+  document.addEventListener("DOMContentLoaded", loaded, false);
+
+  function disableAllButtons(form) {
+    var buttons = form.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+  }
+})();
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,9 @@
+<body>
+<h1>{{ language }} Articles</h1>
+<ul>
+    {% for article in articles %}
+        <li>{{ article.title }}</li>
+        <p>{{ article.content }}</p>
+    {% endfor %}
+</ul>
+/body>
