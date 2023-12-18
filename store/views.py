@@ -6,6 +6,7 @@ import datetime
 from .models import * 
 from .utils import cookieCart, cartData, guestOrder
 from .models import OrderConfirmation
+from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import gettext as _
 
 def confirmation_page(request):
