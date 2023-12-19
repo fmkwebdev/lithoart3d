@@ -43,12 +43,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
 ]
 
-LANGUAGE_CODE = 'en-us'
-LANGUAGES = [
-    ('en', _('English')),
-    ('hu', _('Hungarian')),
-    ('sr', _('Serbian')),
-]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,5 +142,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-CSRF_COOKIE_SECURE = True  # Set it to True for HTTPS connections
-CSRF_COOKIE_HTTPONLY = True  # Recommended for security
+CSRF_COOKIE_DOMAIN = '.railway.app'

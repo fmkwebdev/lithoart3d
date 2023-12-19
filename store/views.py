@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import json
 import datetime
 from .models import * 
