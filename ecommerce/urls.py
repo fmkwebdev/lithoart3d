@@ -22,5 +22,5 @@ from store.views import view_images
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('store.urls')),
-    path('gallery/', view_images, name='image_gallery'),
+    path('gallery/', view_images, name='image_gallery')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
