@@ -8,6 +8,7 @@ from .utils import cookieCart, cartData, guestOrder
 from .models import OrderConfirmation
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import gettext as _
+from django.contrib.auth.decorators import login_required
 
 def confirmation_page(request):
     if not request.session.get('purchased', False):
@@ -30,6 +31,10 @@ def confirmation_page(request):
         confirmation_number = get_random_string(length=5, allowed_chars='1234567890')
         return render(request, 'store/dynamic.html', {'confirmation_number': confirmation_number})
 
+@login_required
+def view_images(request):
+    images = OrderConfirmation.objects.all()  # Retrieve all images from the database
+    return render(request, 'store/image_gallery.html', {'images': images})
 
 def confirmation_page_sr(request):
     if not request.session.get('purchased', False):

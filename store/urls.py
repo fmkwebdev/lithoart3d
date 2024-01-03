@@ -17,5 +17,6 @@ urlpatterns = [
     path('unauthorized/', views.unauthorized, name="unauthorized"),
     path('sr', views.storesr, name="sr"),
     path('sr/cart', views.cartsr, name="cartsr"),
-    path('sr/checkout/', views.checkoutsr, name="checkoutsr")
+    path('sr/checkout/', views.checkoutsr, name="checkoutsr"),
+    path('gallery/', views.view_images, name="viewimages")
 ]
