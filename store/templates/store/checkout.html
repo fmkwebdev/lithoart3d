@@ -76,7 +76,7 @@
 				<hr>
 				{% for item in items %}
 				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{% static item.product.imageURL %}"></div>
+					<div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
 					<div style="flex:2"><p style="color: #fff;">{{item.product.name}}</p></div>
 					<div style="flex:1"><p style="color: #fff;">{{item.product.price|floatformat:2}} DIN </p></div>
 					<div style="flex:1"><p style="color: #fff;">x{{item.quantity}} </p></div>
