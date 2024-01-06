@@ -142,7 +142,7 @@ MEDIA_URL = 'images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CSRF_COOKIE_DOMAIN = '.railway.app'
 
