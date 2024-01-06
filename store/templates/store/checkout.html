@@ -32,21 +32,18 @@
 						<p style="font-size: 1.2em; font-weight: 600; margin: 1em; color: #fff;">Szállítási infók</p>
 						<hr>
 						<div class="form-field">
-							<input class="form-control" type="text" name="address" placeholder="Address..">
+							<input class="form-control" type="text" name="address" placeholder="Lakcím..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="city" placeholder="City..">
+							<input class="form-control" type="text" name="city" placeholder="Város..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="state" placeholder="State..">
+							<input class="form-control" type="text" name="state" placeholder="Körzet..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+							<input class="form-control" type="text" name="zipcode" placeholder="Irányítószám..">
 						</div>
-						<div class="form-field">
-							<input class="form-control" type="text" name="country" placeholder="Zip code..">
-						</div>
-			
+						
                     </div>
                     
 <form  method="post" enctype="multipart/form-data">
@@ -62,7 +59,7 @@
 			<br>
 			<div class="hooker1-element hidden" id="payment-info" style="display: flex; justify-content: center; justify-items: center;">
 				<!--<button id="make-payment">Make payment</button>-->
-				<div id="paypal-button-container"></div>
+				<div id="paypal-button-container" style="width: 400px;"><center></center></div>
 				
 			</div>
 			
@@ -78,7 +75,7 @@
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
 					<div style="flex:2"><p style="color: #fff;">{{item.product.name}}</p></div>
-					<div style="flex:1"><p style="color: #fff;">{{item.product.price|floatformat:2}} DIN </p></div>
+					<div style="flex:1"><p style="color: #fff;">{{item.product.price|floatformat:2}} EUR </p></div>
 					<div style="flex:1"><p style="color: #fff;">x{{item.quantity}} </p></div>
 				</div>
 				{% endfor %}
@@ -125,6 +122,7 @@
                 color:  'blue',
                 shape:  'pill',
 				label: 'paypal',
+                width: '100%',
 				
             },
 

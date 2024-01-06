@@ -80,8 +80,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-5">
         <a class="nav-link active pr-5 " aria-current="page" href="{% url 'store'%}" style="font-size: 1.6em; color: white;"> Home</a>
-        <a class="nav-link pr-5" href="#how_does_it_work" style="font-size: 1.6em; color: white;">Features</a>
-        <a class="nav-link pr-5" href="#products" style="font-size: 1.6em; color: white;">Pricing</a>
+        <a class="nav-link pr-5" href="{% url 'store' %}#how_does_it_work" style="font-size: 1.6em; color: white;">Features</a>
+        <a class="nav-link pr-5" href="{% url 'store' %}#products" style="font-size: 1.6em; color: white;">Pricing</a>
         <a class="nav-link pr-5" href="{% url 'sr' %}"><img src="{% static 'images/serbia.png' %}" class="flag" /></a>&nbsp;
         <a class="nav-link pr-5" href="{% url 'store' %}" ><img src="{% static 'images/hungary.png' %}" class="flag"/></a>
       </div>
