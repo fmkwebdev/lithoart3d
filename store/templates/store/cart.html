@@ -21,10 +21,10 @@
 				
 				<table class="table">
 					<tr>
-						<th><h5  style="color: white;">Termékek száma: <strong>{{order.get_cart_items}}</strong></h5></th>
-						<th><h5  style="color: white;">Végösszeg:<strong> {{order.get_cart_total|floatformat:2}} EUR</strong></h5></th>
+						<th><h5 class="cart_termekek" style="color: white;">Termékek száma: <strong>{{order.get_cart_items}}</strong></h5></th>
+						<th><h5 class="cart_vegosszeg" style="color: white;">Végösszeg:<strong> {{order.get_cart_total|floatformat:2}} EUR</strong></h5></th>
 						<th>
-							<a  style="float:right; margin:5px; border-radius: 15px;" class="btn btn-success" href="{% url 'checkout' %}" >Vásárlás</a>
+							<a  style="float:right; margin:5px; border-radius: 15px;" class="btn btn-success phx" href="{% url 'checkout' %}" >Vásárlás</a>
 						</th>
 					</tr>
 				
@@ -36,7 +36,7 @@
 			<div class="boxolo-element" style="background-color: #0f0f0f; background-blend-mode: darken; display: flex; flex-direction: column; justify-content: space-around; justify-content: space-evenly; gap: 1.4em">
 				<div class="cart-row">
 					<div style="flex-grow: 2; margin-left: 10%;"><strong style="color: white;">Termék</strong></div>
-					<div style="flex-grow: 2;"><strong style="color: white;">Ár</strong></div>
+
 					<div style="flex-grow: 2;"><strong style="color: white;">Darabszám</strong></div>
 					<div style="flex-grow: 2;"><strong style="color: white;">Végösszeg</strong></div>
 				</div>
@@ -44,7 +44,7 @@
 				{% for item in items %}
 				<div class="cart-row">
 					<div style="flex-grow: 2; margin-left: 9%;"><p style="color: white;">{{item.product.name}}</p></div>
-					<div style="flex-grow: 2;"><p style="color: white;">{{item.product.price|floatformat:2}} EUR </p></div>
+
 					<div style="flex-grow: 2;">
 						<p class="quantity"  style="color: white; font-size: 1.5em;">{{item.quantity}}</p>
 						<div class="quantity">
