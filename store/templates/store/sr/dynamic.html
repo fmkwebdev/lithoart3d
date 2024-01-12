@@ -33,19 +33,19 @@ html {
            <div class="card" style="width: 28rem;">
               <img class="card-img-top" >
               <div class="card-body">
-                <h5 class="card-title text-center">Köszönjük a vásárlást!</h5>
+                <h5 class="card-title text-center">Hvala Vam na kupovini!</h5>
                 <p class="card-text">
-                A lent látható számot írja fel, ez lesz a kép egyedi azonosítója. Ezzel kikerüljük az esetleges keveredéseket.<br>
-                A megadott e-mail címen fogjuk önt értesíteni a rendelés állapotáról.
+                Molimo Vas da zapišite broj ispod. To će biti jedinstvena identifikacija slike. Time želimo da sprečavamo moguće zabune. <br>
+                Obeveštićemo Vas o statusu Vaše porudžbine putem emaila na datu adresu.
                 </p>
-                  <p>Az ön képének egyedi azonosítószáma: {{ confirmation_number }}</p>
+                  <p>Jedinstveni identifikacioni broj Vaše slike: {{ confirmation_number }}</p>
                   		<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="hidden" name="confirmation_number" value="{{ confirmation_number }}">
     <input type="text" name="name" placeholder="Név" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="file" name="file" required style="margin-top: 5%;"><br>
-    <p style="margin-top: 5%;">A "browse" gombra kattintva kell feltölteni a képet, amelyet ki szeretnének nyomtatni.</p>
+    <p style="margin-top: 5%;">Klikom na dugme "browse" možete dodati sliku koju želite da odštampate.</p>
     <input id="form-button" class="btn btn-success btn-block" type="submit" value="Elküldöm" style="border-radius: 12px;">
                     </form>
                 
