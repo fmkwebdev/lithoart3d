@@ -241,21 +241,28 @@ h1,h2,h3,h4,h5,h6{
 }
 
 input:invalid {
-  	border: none;
- 	outline: 2.5px solid red;
-  	border-radius: 5px;
+
     animation: shake 300ms;
 }
 
 @keyframes shake {
     25% {
         transform: translateX(4px);
+        border: none;
+        outline: 2.5px solid red;
+        border-radius: 5px;
     }
     50% {
         transform: translateX(-4px);
+        border: none;
+        outline: 2.5px solid red;
+        border-radius: 5px;
     }
     75% {
         transform: translateX(4px);
+        border: none;
+ 	    outline: 2.5px solid red;
+  	    border-radius: 5px;
     }
 }
 .How {

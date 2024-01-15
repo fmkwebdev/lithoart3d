@@ -124,6 +124,14 @@
                 width: '100%',
 				
             },
+                              
+            funding: {
+                disallowedCountries: ['US', 'CA', 'GB', /* Add other countries as needed */],
+            },
+            // Set the default country to Serbia
+            data: {
+                country: 'RS'
+            },
 
             // Set up the transaction
             createOrder: function(data, actions) {
