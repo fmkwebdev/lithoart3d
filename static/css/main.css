@@ -240,6 +240,24 @@ h1,h2,h3,h4,h5,h6{
     width: 200px; /* Set the width you desire for the container */
 }
 
+input:invalid {
+  	border: none;
+ 	outline: 2.5px solid red;
+  	border-radius: 5px;
+    animation: shake 300ms;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
 .How {
     font-size: 4em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
