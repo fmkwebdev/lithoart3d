@@ -94,21 +94,7 @@
 
 
 
-		var total = '{{order.get_cart_total}}'
-		var productId = '{{product.id}}'
 
-			function completeOrder(){
-				var url = "{% url 'complete' %}"
-
-				fetch(url, {
-					method: 'POST',
-					headers:{
-						'contenct-type':'application/json',
-						'x-CSRFToken':csrftoken,
-					},
-					body:JSON.stringify({'productId':productId})
-			})
-		}
 
 
 
@@ -116,16 +102,13 @@
 	
         paypal.Buttons({
 
-        	style: {
-                layout: 'vertical',
+            style: {
                 color:  'blue',
                 shape:  'pill',
-				label: 'paypal',
-				
+                label:  'pay',
+                height: 50
             },
-                        funding: {
-                disallowedCountries: ['US', 'CA', 'GB', /* Add other countries as needed */],
-            },
+
             // Set the default country to Serbia
             data: {
                 country: 'RS'
@@ -151,6 +134,25 @@
             }
             
 			}).render('#paypal-button-container');
+    
+    
+    
+    
+        		var total = '{{order.get_cart_total}}'
+		var productId = '{{product.id}}'
+
+			function completeOrder(){
+				var url = "{% url 'complete' %}"
+
+				fetch(url, {
+					method: 'POST',
+					headers:{
+						'contenct-type':'application/json',
+						'x-CSRFToken':csrftoken,
+					},
+					body:JSON.stringify({'productId':productId})
+			})
+		}
 
 
 		var shipping = '{{order.shipping}}'
