@@ -132,7 +132,7 @@ USE_TZ = True
 
 CSP_DEFAULT_SRC = ("*")
 
-CSP_STYLE_SRC = ("'self'", "'nonce-%(nonce)s'")
+CSP_STYLE_SRC = ("'self'", "'nonce-%s'", "'https://lithoart3d.s3.amazonaws.com'", "'https://stackpath.bootstrapcdn.com'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
