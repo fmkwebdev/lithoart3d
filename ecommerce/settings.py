@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
-    'csp',
     'storages',
 ]
 
@@ -129,7 +128,7 @@ USE_TZ = True
 
 #sec
 
-CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'")
+CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", "'%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
