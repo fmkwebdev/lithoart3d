@@ -30,8 +30,7 @@ def confirmation_page(request):
         return redirect('confirmation_success')  # Redirect to a success page
     else:
         confirmation_number = get_random_string(length=5, allowed_chars='1234567890')
-        nonce = str(uuid.uuid4())
-        return render(request, 'store/dynamic.html', {'confirmation_number': confirmation_number}, {'nonce': nonce})
+        return render(request, 'store/dynamic.html', {'confirmation_number': confirmation_number})
 
 @login_required
 def view_images(request):
@@ -57,8 +56,7 @@ def confirmation_page_sr(request):
         return redirect('confirmation_success')  # Redirect to a success page
     else:
         confirmation_number = get_random_string(length=5, allowed_chars='1234567890')
-        nonce = str(uuid.uuid4())
-        return render(request, 'store/sr/dynamic.html', {'confirmation_number': confirmation_number}, {'nonce': nonce})
+        return render(request, 'store/sr/dynamic.html', {'confirmation_number': confirmation_number})
 def confirmation_success(request):
     request.session['purchased'] = False
     return redirect('store')
@@ -116,23 +114,21 @@ def cartsr(request):
 
 def checkout(request):
 	data = cartData(request)
-	nonce = str(uuid.uuid4())
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
 	products = Product.objects.all()
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
-	return render(request, 'store/checkout.html', context, {'nonce': nonce})
+	return render(request, 'store/checkout.html', context)
 
 def checkoutsr(request):
 	data = cartData(request)
-    nonce = str(uuid.uuid4())
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
 	products = Product.objects.all()
 	context = {'products':products, 'items':items, 'order':order, 'cartItems':cartItems}
-	return render(request, 'store/sr/checkout.html', context, {'nonce': nonce})
+	return render(request, 'store/sr/checkout.html', context)
 
 def updateItem(request):
 	data = json.loads(request.body)
