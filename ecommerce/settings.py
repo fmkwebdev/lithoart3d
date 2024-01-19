@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'csp.middleware.CSPMiddleware',
+    'ecommerce.middleware.CSPMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -130,7 +131,8 @@ USE_TZ = True
 #sec
 
 CSP_DEFAULT_SRC = ("*")
-CSP_STYLE_SRC = ("'self'", "'nonce-%s'" % nonce )
+
+CSP_STYLE_SRC = ("'self'", "'nonce-%(nonce)s'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
