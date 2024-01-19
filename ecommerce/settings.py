@@ -129,7 +129,7 @@ USE_TZ = True
 
 #sec
 
-CSP_DEFAULT_SRC = ("'self'", "'unsafe-inline'", "'%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME'")
+CSP_DEFAULT_SRC = ("'self'", "'lithoart3d.s3.amazonaws.com'", "'code.jquery.com'", "'stackpath.bootstrapcdn.com'", "'cdn.jsdelivr.net'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
