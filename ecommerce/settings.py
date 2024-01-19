@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
-    'csp',
     'storages',
 ]
 
@@ -53,8 +52,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'csp.middleware.CSPMiddleware',
-    'store.middleware.CSPMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -130,9 +127,6 @@ USE_TZ = True
 
 #sec
 
-CSP_DEFAULT_SRC = ("*")
-
-CSP_STYLE_SRC = ("'self'", "'nonce-%s'", "'https://lithoart3d.s3.amazonaws.com'", "'https://stackpath.bootstrapcdn.com'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
