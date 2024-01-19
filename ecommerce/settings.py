@@ -129,7 +129,7 @@ USE_TZ = True
 
 #sec
 
-CSP_DEFAULT_SRC = ("'self'", "'lithoart3d.s3.amazonaws.com'", "'code.jquery.com'", "'stackpath.bootstrapcdn.com'", "'cdn.jsdelivr.net'")
+CSP_DEFAULT_SRC = ("*")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
