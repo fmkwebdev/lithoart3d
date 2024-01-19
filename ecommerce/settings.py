@@ -129,7 +129,8 @@ USE_TZ = True
 
 #sec
 
-CSP_DEFAULT_SRC = ("*")
+CSP_DEFAULT_SRC = ("'self'", "'https://lithoart3d.s3.amazonaws.com'")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
