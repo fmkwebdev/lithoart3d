@@ -28,9 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lithoart3d.com', '127.0.0.1']
+ALLOWED_HOSTS = ['lithoart3d.com', 'www.lithoart3d.com']
 
-CSRF_TRUSTED_ORIGINS = ['lithoart3d.com', 'http://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['lithoart3d.com', 'www.lithoart3d.com']
 
 # Application definition
 
