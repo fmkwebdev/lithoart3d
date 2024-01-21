@@ -127,14 +127,14 @@
 <section style="background-color: #0a0808; z-index: 1; margin-top: 20%; border-radius: 5em; width: 100%; padding: 2em;" class="col-lg-12 z-3" id="products">
 	<div class="card-deck">
 {% for product in products %}
-  <div class="card" style="border-radius: 10% 10% 10% 10%; border: 0;">
+  <div class="card" style="border-radius: 4em 4em 4em 4em; border: 0;">
     <img src="{{ product.imageURL }}" class="card-img-top" alt="..." style="max-height: 60%; border-radius: 10% 10% 0% 0%;">
     <div class="card-body">
-      <h5 class="card-title" style="font-size: 1.5em;"><strong>{{product.name2}}</strong></h5>
-      <p class="card-text">{{product.leiras_sr}}</p>
-      <p class="card-text" style="margin-top: 10%;">
-          <button data-product="{{product.id}}" data-action="add" class="col-lg-6 btn btn-outline-secondary add-btn update-cart" style="border-radius: 2em; z-index: 3;"><h4 style="font-size: 1em; font-weight:700;"><stong>Dodaj u korpu</stong></h4></button>
-				<button class="col-lg-6 btn btn-outline-secondary" style="border-radius: 2em; float: right; z-index: 3;" ><h4 style="font-size: 1.2em; font-weight: 500; pointer-events: none;"><strong>{{product.price}} € </strong></h4></button></p>
+      <h5 class="card-title text-center" style="font-size: 1.8em;"><strong>{{product.name2}}</strong></h5>
+      <p class="card-text text-center" style="font-size: 1.5em; margin-top: 1em; margin-bottom: 1em;">{{product.leiras_sr}}</p>
+      
+          <button data-product="{{product.id}}" data-action="add" class="col-lg-6 btn btn-outline-secondary add-btn update-cart" style="border-radius: 2em; z-index: 3;"><h4 style="font-size: 1.25em; font-weight:700;"><stong>Dodaj u korpu</stong></h4></button>
+				<button class="col-lg-6 btn btn-outline-secondary" style="border-radius: 2em; float: right; z-index: 3;" ><h4 style="font-size: 1.25em; font-weight: 500; pointer-events: none;"><strong>{{product.price}} € </strong></h4></button>
     </div>
   </div>
  {% endfor %}
