@@ -84,7 +84,7 @@
 		</div>
 	</div>
 
-	<script src="https://www.paypal.com/sdk/js?client-id=AaD6FcT4X3W23SbOsgnqGTDZFdfowlDp7hhgPcUvjvSxBVs2D4vAxKTVnnGa4g7yATdSQXM-yOvm2uEr&locale=en_RS" integrity="sha384-q+8IwjqFaV3GyV2p7zYxe/sVhf9sx7hHw1D5iB2fMQZSljrcy3iyLbuMzPoY9hk/"  crossorigin="anonymous"></script>
+	<script src="https://www.paypal.com/sdk/js?client-id=AfzJyEeVmOuQGCneSL2JTq6g3bfrKkfc5GDXPvyLFmQARqkSAXXyBEJhfOqzSo6R2Tm70Kx8Yq5lIQ0S&locale=en_RS" ></script>
 
 
 
@@ -228,7 +228,7 @@
 				cart = {}
 				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 
-				window.location.href = "{% url 'confirmation_page' %}"
+				window.location.assign("{% url 'confirmation_page' %}");
 
 				})
 	    }
