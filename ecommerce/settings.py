@@ -142,9 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-CSRF_COOKIE_DOMAIN = '.lithoart3d.com'
+CSRF_COOKIE_DOMAIN = '.railway.app'
 
-SESSION_COOKIE_DOMAIN = '.lithoart3d.com'
+SESSION_COOKIE_DOMAIN = '.railway.app'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
