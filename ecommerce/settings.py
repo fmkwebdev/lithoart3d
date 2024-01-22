@@ -28,9 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lithoart3d.com', 'www.lithoart3d.com']
+ALLOWED_HOSTS = ['lithoart3d.com', 'www.lithoart3d.com', 'web-production-be75.up.railway.app', 'www.web-production-be75.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://lithoart3d.com', 'https://www.lithoart3d.com']
+CSRF_TRUSTED_ORIGINS = ['https://lithoart3d.com', 'https://www.lithoart3d.com', 'https://web-production-be75.up.railway.app','https://www.web-production-be75.up.railway.app']
 
 # Application definition
 
