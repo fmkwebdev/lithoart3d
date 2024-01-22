@@ -228,7 +228,7 @@
 				cart = {}
 				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 
-				window.location.assign("{% url 'confirmation_page' %}");
+				window.location.replace("{% url 'confirmation_page' %}");
 
 				})
 	    }
