@@ -117,7 +117,6 @@ def checkout(request):
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
-	products = Product.objects.all()
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'store/checkout.html', context)
 
@@ -126,8 +125,7 @@ def checkoutsr(request):
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
-	products = Product.objects.all()
-	context = {'products':products, 'items':items, 'order':order, 'cartItems':cartItems}
+	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'store/sr/checkout.html', context)
 
 def updateItem(request):
