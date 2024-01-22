@@ -225,8 +225,6 @@
 	    	.then((response) => response.json())
 	    	.then((data) => {
 				console.log('Success:', data);
-				alert('A vásárlás sikeres volt. ');  
-
 				cart = {}
 				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 

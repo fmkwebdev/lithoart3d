@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['lithoart3d.com', 'www.lithoart3d.com']
 
@@ -146,7 +146,7 @@ CSRF_COOKIE_DOMAIN = '.lithoart3d.com'
 
 SESSION_COOKIE_DOMAIN = '.lithoart3d.com'
 
-SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -157,6 +157,8 @@ SECURE_HSTS_PRELOAD = True
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
