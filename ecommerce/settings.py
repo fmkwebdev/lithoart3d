@@ -144,7 +144,12 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CSRF_COOKIE_DOMAIN = '.lithoart3d.com'
 
+SESSION_COOKIE_DOMAIN = '.lithoart3d.com'
+
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
