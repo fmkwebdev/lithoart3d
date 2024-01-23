@@ -85,12 +85,21 @@
 
 
 <script>
-	
+		var total = '{{order.get_cart_total}}'
+		var productId = '{{product.id}}'
 
+			function completeOrder(){
+				var url = "{% url 'complete' %}"
 
-
-
-
+				fetch(url, {
+					method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                        'x-CSRFToken': csrftoken,
+                    },
+					body:JSON.stringify({'productId':productId})
+			})
+		}
 
 
 
@@ -106,7 +115,6 @@
                 width: '100%',
 				
             },
-
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -125,27 +133,8 @@
 					
                 });
             }
-            
+
 			}).render('#paypal-button-container');
-    
-    
-    
-    
-        		var total = '{{order.get_cart_total}}'
-		var productId = '{{product.id}}'
-
-			function completeOrder(){
-				var url = "{% url 'complete' %}"
-
-				fetch(url, {
-					method: 'POST',
-					headers:{
-						'contenct-type':'application/json',
-						'x-CSRFToken':csrftoken,
-					},
-					body:JSON.stringify({'productId':productId})
-			})
-		}
 
 
 		var shipping = '{{order.shipping}}'
@@ -205,7 +194,7 @@
 	    	console.log('Shipping Info:', shippingInfo)
 	    	console.log('User Info:', userFormData)
 
-	    	var url = "/process_order/"
+	    	var url = "{% url 'process_order' %}"
 	    	fetch(url, {
 	    		method:'POST',
 	    		headers:{
@@ -221,9 +210,13 @@
 				cart = {}
 				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 
-				window.location.replace("https://web-production-be75.up.railway.app/confirmation_page/1312");
+				window.location.replace("{% url 'confirmation_page' %}");
 
 				})
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle the error appropriately (e.g., show a user-friendly message)
+            });
 	    }
 	</script>
 {% endblock content %}
