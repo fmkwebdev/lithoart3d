@@ -34,7 +34,7 @@ html {
  <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
     <input type="hidden" name="confirmation_number" value="{{ confirmation_number }}">
-    <input type="text" name="name" placeholder="Név" class="form-control" required>
+    <input type="text" name="name" placeholder="Ime" class="form-control" required>
      <br>
     <input type="email" name="email" placeholder="Email" class="form-control"  required>
      <br>
