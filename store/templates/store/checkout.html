@@ -198,7 +198,7 @@
 	    	console.log('Shipping Info:', shippingInfo)
 	    	console.log('User Info:', userFormData)
 
-	    	var url = "/process_order/"
+	    	var url = "{% url 'process_order' %}"
 	    	fetch(url, {
 	    		method:'POST',
 	    		headers:{
@@ -217,6 +217,10 @@
 				window.location.replace("{% url 'confirmation_page' %}");
 
 				})
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle the error appropriately (e.g., show a user-friendly message)
+            });
 	    }
 	</script>
 {% endblock content %}
