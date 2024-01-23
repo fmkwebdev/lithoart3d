@@ -174,9 +174,8 @@ def processOrder(request):
         city=data['shipping']['city'],
         state=data['shipping']['state'],
         zipcode=data['shipping']['zipcode'],
-        )
+        )  
     return JsonResponse('Payment submitted..', safe=False)
-    return redirect('pay')
 
 def pay(request):
 	return render(request, 'store/pay.html')

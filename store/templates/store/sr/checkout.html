@@ -53,8 +53,6 @@
 					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Dalje ka kupovini" style="height: 100%; border-radius: 12px;">
 					<hr>
 				</form>
-			</div>
-
 			<br>
 			<div class="hooker1-element hidden" id="payment-info" style="display: flex; justify-content: center; justify-items: center;">
 				<!--<button id="make-payment">Make payment</button>-->
@@ -62,7 +60,7 @@
 				
 			</div>
 			
-		</div>
+		
 
 		<div class="col-lg-12">
 			<div class="boxere-element" style="border-radius: 20px; background-color: #0f0f0f; background-blend-mode: darken;">
@@ -82,8 +80,6 @@
 				<h5 style="color: #fff;">Ukupan iznos:   {{order.get_cart_total|floatformat:2}} EUR</h5>
 			</div>
 		</div>
-	</div>
-
 	<script src="https://www.paypal.com/sdk/js?client-id=AbC6nh510fTc7iqV9BX9DDGTkayTHrLgZfBYz3QfObeQIGnrdVsAR81peAf7kapmK5lzGB6JbokDetaF&locale=en_RS"></script>
 
 
@@ -225,7 +221,7 @@
 				cart = {}
 				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 
-				window.location.replace("{% url 'confirmation_page' %}");
+				window.location.replace("https://web-production-be75.up.railway.app/confirmation_page/1312");
 
 				})
 	    }
