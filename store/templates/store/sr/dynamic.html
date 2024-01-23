@@ -25,8 +25,8 @@ html {
         <div class="d-flex w-100 justify-content-center" style="flex: auto; width: 100vw;">
 			<div class="hooker-element" id="form-wrapper" style="border-radius: 20px; background-color: #000; background-blend-mode: darken;">
 					<hr>
-                <h5 class="card-title text-center" style="font-size: 2em;">Hvala Vam na kupovini!</h5>
-                <p class="card-text text-center" style="color: white; font-size: 1.3em;">
+                <h5 class="card-title text-center" style="font-size: 1.6em;">Hvala Vam na kupovini!</h5>
+                <p class="card-text text-center" style="color: white; font-size: 1em;">
                 Molimo Vas da zapišite broj ispod. To će biti jedinstvena identifikacija slike. Time želimo da sprečavamo moguće zabune. <br>
                 Obeveštićemo Vas o statusu Vaše porudžbine putem emaila na datu adresu.
                 </p>
@@ -34,10 +34,13 @@ html {
  <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
     <input type="hidden" name="confirmation_number" value="{{ confirmation_number }}">
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <input type="password" class="form-control" id="exampleInputPassword1">
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <input type="text" name="name" placeholder="Név" required>
      <br>
+    <input type="email" name="email" placeholder="Email" required>
+     <br>
+    <input type="file" name="file" required>
+     <br>
+     <p class="text-center" style="font-size: 1em; color:white;">Klikom na dugme "browse" možete dodati sliku koju želite da odštampate.</p>
   <button id="form-button" class="btn btn-success btn-block" type="submit" value="Elküldöm" style="border-radius: 12px;">Submit</button>
 </form>
 					
