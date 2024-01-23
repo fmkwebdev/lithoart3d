@@ -214,6 +214,15 @@ h1,h2,h3,h4,h5,h6{
 	height: 100%;
 }
 
+.booker-element{
+	
+	background-color: #fff;
+	border-radius: 12px;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+}
+
 .Custom3D{
     color: #e4e6e4;
     font-size: 4.5em;
@@ -376,6 +385,9 @@ input:invalid {
         display: none;
         visibility: hidden;
     }
+    .booker-element{
+        margin-top: 10%;
+    }
 
 }
 
@@ -442,6 +454,9 @@ input:invalid {
     .back {
         display: none;
         visibility: hidden;
+    }
+    .booker-element{
+        margin-top: 10%;
     }
 
 
