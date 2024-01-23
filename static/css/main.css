@@ -381,8 +381,8 @@ input:invalid {
 
 @media screen and (max-width: 350px) {
     .menu_logo{
-        width: 100px;
-        height: 75px;
+        width: 105px;
+        height: 65px;
     }
     .Custom3D{
         font-size: 2em;

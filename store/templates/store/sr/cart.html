@@ -22,7 +22,7 @@
 				<table class="table">
 					<tr>
 						<th><h5 class="cart_termekek" style="color: white;">Broj proizvoda: <strong>{{order.get_cart_items}}</strong></h5></th>
-						<th><h5 class="cart_vegosszeg" style="color: white;">Ukupan iznos:<strong> {{order.get_cart_total|floatformat:2}} EUR</strong></h5></th>
+						<th><h5 class="cart_vegosszeg" style="color: white;">Ukupan iznos:<strong> {{order.get_cart_total|floatformat:2}} €</strong></h5></th>
 						<th>
 							<a  style="float:right; margin:5px; border-radius: 15px;" class="btn btn-success phx" href="{% url 'checkoutsr' %}" >Kupovina</a>
 						</th>
@@ -52,7 +52,7 @@
 							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down12.png' %}" style="height: 0.8em; width: 0.8em;">
 						</div>
 					</div>
-					<div style="flex-grow: 2;"><p  style="color: white;">{{item.get_total|floatformat:2}} EUR</p></div>
+					<div style="flex-grow: 2;"><p  style="color: white;">{{item.get_total|floatformat:2}} €</p></div>
 				</div>
 				{% endfor %}
 			

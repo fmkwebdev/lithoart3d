@@ -72,12 +72,11 @@
 				<div class="cart-row">
 					<div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"></div>
 					<div style="flex:2"><p style="color: #fff;">{{item.product.name2}}</p></div>
-					<div style="flex:1"><p style="color: #fff;">{{item.product.price|floatformat:2}} EUR </p></div>
 					<div style="flex:1"><p style="color: #fff;">x{{item.quantity}} </p></div>
 				</div>
 				{% endfor %}
 				<h5 style="color: #fff;">Proizvodi:   {{order.get_cart_items}} kom</h5>
-				<h5 style="color: #fff;">Ukupan iznos:   {{order.get_cart_total|floatformat:2}} EUR</h5>
+				<h5 style="color: #fff;">Ukupan iznos:   {{order.get_cart_total|floatformat:2}} €</h5>
 			</div>
 		</div>
     <script src="https://www.paypal.com/sdk/js?client-id=AXSey91oAOXfTtlqvCZzAzVHtAQZnBO0k308d3wL8ah1xZ4qm82XKPD-aPJf8WUtT1iGAhf69hDUHslO&locale=en_RS" integrity="sha384-q+8IwjqFaV3GyV2p7zYxe/sVhf9sx7hHw1D5iB2fMQZSljrcy3iyLbuMzPoY9hk/" crossorigin="anonymous"></script>
