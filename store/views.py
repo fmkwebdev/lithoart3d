@@ -38,8 +38,6 @@ def view_images(request):
     return render(request, 'store/image_gallery.html', {'images': images})
 
 def confirmation_page_sr(request):
-    if not request.session.get('purchased', False):
-        return redirect('unauthorized')
     if request.method == 'POST':
         confirmation_number = request.POST.get('confirmation_number')
         name = request.POST.get('name')
