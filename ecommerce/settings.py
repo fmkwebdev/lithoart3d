@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['lithoart3d.com', 'www.lithoart3d.com', 'web-production-be75.up.railway.app', 'www.web-production-be75.up.railway.app']
 
@@ -142,9 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-CSRF_COOKIE_DOMAIN = '.railway.app'
+CSRF_COOKIE_DOMAIN = '.lithoart3d.com'
 
-SESSION_COOKIE_DOMAIN = '.railway.app'
+SESSION_COOKIE_DOMAIN = '.lithoart3d.com'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -152,6 +152,13 @@ SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = None
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
