@@ -17,10 +17,6 @@ html {
   }
 
 </style>
-
-    
-    
-    
 		<div class="col-lg-12" style="z-index: 0;">
 
 			<div class="hooker-element" id="form-wrapper" style="border-radius: 20px; background-color: #000; background-blend-mode: darken;">
@@ -31,8 +27,8 @@ html {
                 Obeveštićemo Vas o statusu Vaše porudžbine putem emaila na datu adresu.
                 </p>
                   <p>Jedinstveni identifikacioni broj Vaše slike: {{ confirmation_number }}</p>
+    <form method="POST" enctype="multipart/form-data">
 					<div id="user-info">
-                        <form method="POST" enctype="multipart/form-data">
                          {% csrf_token %}
 						<div class="form-field">
 							<input required class="form-control" type="text" name="name" placeholder="Ime..">
@@ -48,8 +44,7 @@ html {
     </form>
 					
 					
-						
-            </div>
+						</div>
     </div>
     </body>
 </html>
