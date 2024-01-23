@@ -240,6 +240,8 @@ h1,h2,h3,h4,h5,h6{
     width: 200px; /* Set the width you desire for the container */
 }
 
+
+
 input:invalid {
 
     animation: shake 300ms;
@@ -370,6 +372,10 @@ input:invalid {
     .hooker-element {
         margin-top: 20%;
     }
+    .back {
+        display: none;
+        visibility: hidden;
+    }
 
 }
 
@@ -433,6 +439,11 @@ input:invalid {
     .Howsr{
         font-size: 1.7em;
     }
+    .back {
+        display: none;
+        visibility: hidden;
+    }
+
 
 }
 
