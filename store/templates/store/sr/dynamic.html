@@ -28,8 +28,9 @@ html {
                 </p>
                   <p>Jedinstveni identifikacioni broj Vaše slike: {{ confirmation_number }}</p>
     <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+        <div class="d-flex w-100 justify-content-center" style="flex: auto; width: 100vw;">
 					<div id="user-info">
-                         {% csrf_token %}
 						<div class="form-field">
 							<input required class="form-control" type="text" name="name" placeholder="Ime..">
 						</div>
@@ -38,6 +39,7 @@ html {
 						</div>
                              <input required class="form-control" type="file" name="file" >   
 					</div>
+        </div>
                 <br>
     <p style="margin-top: 5%; color: white;">Klikom na dugme "browse" možete dodati sliku koju želite da odštampate.</p>
     <input id="form-button" class="btn btn-success btn-block" type="submit" value="Elküldöm" style="border-radius: 12px;">
