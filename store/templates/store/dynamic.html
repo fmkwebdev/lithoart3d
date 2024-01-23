@@ -42,9 +42,15 @@ html {
                   		<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="hidden" name="confirmation_number" value="{{ confirmation_number }}">
-    <input type="text" name="name" placeholder="Név" required>
+    <div class="form-field">
+                            <input type="text" name="name" placeholder="Név" required>
+    </div>
+      <div class="form-field">                  
     <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-field">
     <input type="file" name="file" required style="margin-top: 5%;"><br>
+                            </div>
     <p style="margin-top: 5%;">A "browse" gombra kattintva kell feltölteni a képet, amelyet ki szeretnének nyomtatni.</p>
     <input id="form-button" class="btn btn-success btn-block" type="submit" value="Elküldöm" style="border-radius: 12px;">
                     </form>
