@@ -160,7 +160,8 @@ def processOrder(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
     else:
         customer, order = guestOrder(request, data)
-    total = float(data['form']['total'])
+    total_str = data['form']['total'].replace(',','.')
+    total = float(total_str)
     order.transaction_id = transaction_id
 
     if total == float(order.get_cart_total):
